@@ -36,5 +36,24 @@ The breadboard was created using struct.
 I modified and rewrote the code a few times.
 
 ### Compilation
-in linux / osx run : 
-```gcc -Wall *.c```
+To compile project in linux / osx run : 
+```
+# compile using gcc: 
+
+$ gcc -Wall -o breadboard.out src/*.c
+
+# compile using make: 
+
+$ make
+gcc -o breadboard.out src/breadboard.c src/main.c src/menu.c -Wall
+
+# to run the compiled program :
+
+$ ./breadboard.out 
+
+# cleanup : 
+
+$ make clean
+rm -vf *.out
+breadboard.out
+```
