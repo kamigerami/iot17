@@ -4,7 +4,8 @@ A Breadboard simulator written in C
 ### Table of Content
 1. [About](#about)
 2. [Requirements](#requirements)
-3. [Compilation](#compilation)
+3. [Thoughts](#thoughts)
+4. [Compilation](#compilation)
 
 ### About
 * This program will simulate a breadboard with 30 rows and 10 columns.
@@ -33,3 +34,7 @@ I separated everything into it's own .h and .c files.
 The breadboard was created using struct.
 
 I modified and rewrote the code a few times.
+
+### Compilation
+in linux / osx run : 
+```gcc -Wall *.c```
