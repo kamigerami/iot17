@@ -9,3 +9,11 @@
 
 // show the menu
 void showMenu();
+
+
+// pick available components
+void availableComponents();
+
+
+// insert components
+void insertComponents();
