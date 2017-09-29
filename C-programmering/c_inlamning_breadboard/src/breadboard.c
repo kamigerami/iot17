@@ -22,17 +22,9 @@ void displayBreadBoard()
     }
 }
 
-void pickComponents()
-{
-    return;
-}
-
-void insertComponents()
-{
-    return;
-}
 
 void resetBreadBoard()
 {
+    printf("resetBreadBoard menu\n");
     return;
 }
