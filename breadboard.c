@@ -21,3 +21,18 @@ void displayBreadBoard()
         printf("\n");
     }
 }
+
+void pickComponents()
+{
+    return;
+}
+
+void insertComponents()
+{
+    return;
+}
+
+void resetBreadBoard()
+{
+    return;
+}

@@ -7,3 +7,12 @@
 
 // display the breadboard
 void displayBreadBoard();
+
+// pick components
+void pickComponents();
+
+// insert components
+void insertComponents();
+
+// reset breadboard
+void resetBreadBoard();
