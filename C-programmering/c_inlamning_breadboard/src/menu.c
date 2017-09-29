@@ -17,11 +17,10 @@ void showMenu()
 
         printf("\n");
         printf("1. Display breadboard\n");
-        printf("2. Pick components\n");
-        printf("3. Insert components on breadboard\n");
-        printf("4. Remove components from breadboard\n");
-        printf("5. Reset the breadboard\n");
-        printf("6. Exit\n");
+        printf("2. Pick and add a component to the breadboard\n");
+        printf("3. Remove components from breadboard\n");
+        printf("4. Reset the breadboard\n");
+        printf("5. Exit\n");
 
         fflush(stdout);
 
@@ -41,17 +40,13 @@ void showMenu()
                 break;
             case 3:
                 system("clear");
-                insertComponents();
+                removeComponents();
                 break;
             case 4:
                 system("clear");
-                removeComponents();
-                break;
-            case 5:
-                system("clear");
                 resetBreadBoard();
                 break;
-            case 6:
+            case 5:
                 printf("exiting\n");
                 exit(EXIT_SUCCESS);
                 break;
@@ -61,6 +56,6 @@ void showMenu()
                 break;
         }
 
-    }while(choice != 6);
+    }while(choice != 5);
 }
 

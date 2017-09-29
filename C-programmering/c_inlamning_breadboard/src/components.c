@@ -2,13 +2,21 @@
 #include "menu.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void pickComponents() {
+
+//    Component component;
     int choice = 0;
+//    int width;
+//    int row_pos;
+//    int col_pos;
+
+
     do
     {
         printf("\n");
-        printf("Pick a omponent to use:\n");
+        printf("Pick a component to use:\n");
         printf("1. LED [L]\n");
         printf("2. 220-Ohm-Resistor [R]\n");
         printf("3. Jumper wires [J]\n");
@@ -23,16 +31,13 @@ void pickComponents() {
         switch (choice)
         {
             case 1:
-                system("clear");
-                printf("LED MENU\n");
+                led();
                 break;
             case 2:
-                system("clear");
-                printf("220 OHM MENU\n");
+                resistor();
                 break;
             case 3:
-                system("clear");
-                printf("Jumper Wire\n");
+                jumperWires();
                 break;
             case 4:
                 system("clear");
@@ -50,13 +55,82 @@ void pickComponents() {
     return;
 }
 
-void insertComponents() {
-    printf("insertComponents menu\n");
-    return;
+
+Component insertComponents(int row_pos, int col_pos) {
+    component.row_pos = row_pos;
+    component.col_pos = col_pos;
+    return component;
 }
 
 
 void removeComponents() {
     printf("removeComponents menu\n");
     return;
+}
+
+
+Component makeComponents(char name[], int width) {
+    strcpy(component.name, name);
+    component.width = width;
+    return component;
+}
+
+Component printComponentValues(char name[], int width, int row_pos, int col_pos) {
+    strcpy(component.name, name);
+    component.width = width;
+    component.row_pos = row_pos;
+    component.col_pos = col_pos;
+
+    printf("Component values are: \n");
+    printf("Name: %s\n", name);
+    printf("Width: %d\n", width);
+    printf("Row position: %d\n", row_pos);
+    printf("Column position: %d\n", col_pos);
+    return component;
+}
+
+void askWidth() {
+    printf("How wide is your component? \n");
+    scanf("%d", &component.width);
+    return;
+}
+
+void askPosition() {
+    printf("insert component coordinates, row (1-30) : \n");
+    scanf("%d", &component.row_pos);
+    printf("insert component coordinates, col (1-10) : \n");
+    scanf("%d", &component.col_pos);
+    return;
+}
+
+
+void led() {
+                system("clear");
+                printf("LED MENU\n");
+                askWidth();
+                makeComponents("LED", component.width);
+                askPosition();
+                insertComponents(component.row_pos, component.col_pos);
+                printComponentValues("LED", component.width, component.row_pos, component.col_pos);
+}
+
+void resistor() {
+                system("clear");
+                printf("RESISTOR MENU\n");
+                askWidth();
+                makeComponents("Resistor", component.width);
+                askPosition();
+                insertComponents(component.row_pos, component.col_pos);
+                printComponentValues("Resistor", component.width, component.row_pos, component.col_pos);
+}
+
+
+void jumperWires() {
+                system("clear");
+                printf("JUMPER WIRES MENU\n");
+                askWidth();
+                makeComponents("Jumper Wires", component.width);
+                askPosition();
+                insertComponents(component.row_pos, component.col_pos);
+                printComponentValues("Jumper Wires", component.width, component.row_pos, component.col_pos);
 }
