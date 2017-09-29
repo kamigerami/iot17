@@ -4,14 +4,19 @@
 void displayBreadBoard()
 {
    char grid[ROWS][COLUMS];
-    int i,j;
+    int r,c;
     int row = ROWS;
     int col = COLUMS;
 
-    for (i = 0; i < row; i++) {
-        for (j = 0; j < col; j++) {
-            grid[i][j] = 'x';
-            printf("%c ", grid[i][j]);
+    // top colums A-J (10 columns)
+    printf("00 A B C D E F G H I J\n");
+
+    for (r = 0; r < row; r++) {
+        // left hand side ROWS 1-30 (30 ROWS)
+        printf("%.2d ", r+1);
+        for (c = 0; c < col; c++) {
+            grid[r][c] = 'x';
+            printf("%c ", grid[r][c]);
         }
         printf("\n");
     }
