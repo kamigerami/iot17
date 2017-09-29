@@ -5,7 +5,8 @@
 
 #ifndef MENU_H
 #define MENU_H
-#endif
 
 // show the menu
 void showMenu();
+
+#endif
