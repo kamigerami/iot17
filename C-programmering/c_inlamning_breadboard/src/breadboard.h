@@ -2,7 +2,7 @@
 #define BREADBOARD_H
 
 
-#define COLUMS 10
+#define COLUMNS 10
 #define ROWS 30
 
 // display the breadboard

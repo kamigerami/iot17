@@ -3,12 +3,12 @@
 
 void displayBreadBoard()
 {
-   char grid[ROWS][COLUMS];
+   char grid[ROWS][COLUMNS];
     int r,c;
     int row = ROWS;
-    int col = COLUMS;
+    int col = COLUMNS;
 
-    // top colums A-J (10 columns)
+    // top columns A-J (10 columns)
     printf("00 A B C D E F G H I J\n");
 
     for (r = 0; r < row; r++) {

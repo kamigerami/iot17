@@ -1,5 +1,6 @@
 #include "components.h"
 #include "menu.h"
+#include "breadboard.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -85,16 +86,38 @@ Component printComponentValues(char name[], int width, int row_pos, int col_pos)
 }
 
 void askWidth() {
-    printf("How wide is your component? \n");
+    printf("How wide is your component, (2-8) : \n");
     scanf("%d", &component.width);
+ 
+     if (component.width > 8 || component.width < 2) {
+        printf("Only between 2-8 allowed!\n");
+        printf("defaulting to MIN value size 2\n");
+        component.col_pos = 2;
+    }
+
     return;
 }
 
 void askPosition() {
     printf("insert component coordinates, row (1-30) : \n");
     scanf("%d", &component.row_pos);
+    
+    if (component.row_pos > 30 || component.row_pos < 1) {
+        printf("Only between 1-30 allowed!\n");
+        printf("defaulting to MAX value 30\n");
+        component.row_pos = 30;
+    }
+
     printf("insert component coordinates, col (1-10) : \n");
+    
     scanf("%d", &component.col_pos);
+    
+     if (component.col_pos > 10 || component.col_pos < 1) {
+        printf("Only between 1-10 allowed!\n");
+        printf("defaulting to MAX value 10\n");
+        component.col_pos = 10;
+    }
+
     return;
 }
 
@@ -111,15 +134,17 @@ Component runSubMenu(char menuTitle[], char name[]) {
     return component;
 }
 
-
+// Menu Title, Component name
 void led() {
     runSubMenu("Pick LED Menu", "LED");
 }
 
+// Menu Title, Component name
 void resistor() {
     runSubMenu("Pick Resistor Menu", "Resistor");
 }
 
+// Menu Title, Component name
 void jumperWires() {
     runSubMenu("Pick Jumper Wires Menu", "Jummper Wires");
 }
