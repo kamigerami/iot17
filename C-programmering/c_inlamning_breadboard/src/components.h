@@ -6,6 +6,7 @@ typedef struct {
     int width;
     int row_pos;
     int col_pos;
+    char menuTitle[20];
 } Component;
 
 
@@ -31,6 +32,10 @@ void askWidth();
 
 // set position of component
 void askPosition();
+
+
+// this will ask all the submenu questions
+Component runSubMenu(char menuTitle[], char name[]);
 
 
 // LED

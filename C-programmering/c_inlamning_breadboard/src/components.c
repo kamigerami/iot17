@@ -6,12 +6,7 @@
 
 void pickComponents() {
 
-//    Component component;
     int choice = 0;
-//    int width;
-//    int row_pos;
-//    int col_pos;
-
 
     do
     {
@@ -103,31 +98,28 @@ void askPosition() {
     return;
 }
 
+Component runSubMenu(char menuTitle[], char name[]) {
+    strcpy(component.name, name);
+    strcpy(component.menuTitle, menuTitle);
+
+    printMenuHeader(menuTitle);
+    askWidth();
+    makeComponents(name, component.width);
+    askPosition();
+    insertComponents(component.row_pos, component.col_pos);
+    printComponentValues(name, component.width, component.row_pos, component.col_pos);
+    return component;
+}
+
 
 void led() {
-                printMenuHeader("Pick LED Menu");
-                askWidth();
-                makeComponents("LED", component.width);
-                askPosition();
-                insertComponents(component.row_pos, component.col_pos);
-                printComponentValues("LED", component.width, component.row_pos, component.col_pos);
+    runSubMenu("Pick LED Menu", "LED");
 }
 
 void resistor() {
-                printMenuHeader("Pick Resistor Menu");
-                askWidth();
-                makeComponents("Resistor", component.width);
-                askPosition();
-                insertComponents(component.row_pos, component.col_pos);
-                printComponentValues("Resistor", component.width, component.row_pos, component.col_pos);
+    runSubMenu("Pick Resistor Menu", "Resistor");
 }
 
-
 void jumperWires() {
-                printMenuHeader("Pick Jumper Wires Menu");
-                askWidth();
-                makeComponents("Jumper Wires", component.width);
-                askPosition();
-                insertComponents(component.row_pos, component.col_pos);
-                printComponentValues("Jumper Wires", component.width, component.row_pos, component.col_pos);
+    runSubMenu("Pick Jumper Wires Menu", "Jummper Wires");
 }
