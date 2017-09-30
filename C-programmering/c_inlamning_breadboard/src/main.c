@@ -21,12 +21,7 @@
 
 int main(int argc, char *argv[])
 {
-    printf ( "******************************************\n" );
-    printf ( "*                                        *\n" );
-    printf ( "*   Welcome to the breadboard simulator  *\n" );
-    printf ( "*                                        *\n" );
-    printf ( "******************************************\n" );
-
+    printMenuHeader("Welcome to BreadBoard Simulator");
     showMenu();
     return 0;
 }

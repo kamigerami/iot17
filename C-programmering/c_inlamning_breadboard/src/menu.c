@@ -8,6 +8,7 @@
 #include "components.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void showMenu()
 {
@@ -31,19 +32,19 @@ void showMenu()
         switch (choice)
         {
             case 1:
-                system("clear");
+                printMenuHeader("Display BreadBoard Menu");
                 displayBreadBoard();
                 break;
             case 2:
-                system("clear");
+                printMenuHeader("Pick and add Component Menu");
                 pickComponents();
                 break;
             case 3:
-                system("clear");
+                printMenuHeader("Remove BreadBoard Menu");
                 removeComponents();
                 break;
             case 4:
-                system("clear");
+                printMenuHeader("Reset the BreadBoard Menu");
                 resetBreadBoard();
                 break;
             case 5:
@@ -59,3 +60,18 @@ void showMenu()
     }while(choice != 5);
 }
 
+void printMenuHeader(char title[]) {
+    system("clear");
+    printf("\n");
+    for (int i = 0; i <= strlen(title)+3; i++) {
+        putchar('*');
+    }
+    printf("\n");
+
+    printf ( "* %*s *\n", (int)strlen(title), title );
+
+    for (int i = 0; i <= strlen(title)+3; i++) {
+        putchar('*');
+    }
+    printf("\n");
+}

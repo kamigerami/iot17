@@ -64,7 +64,7 @@ Component insertComponents(int row_pos, int col_pos) {
 
 
 void removeComponents() {
-    printf("removeComponents menu\n");
+    printf("which component do you want to remove?: \n");
     return;
 }
 
@@ -105,8 +105,7 @@ void askPosition() {
 
 
 void led() {
-                system("clear");
-                printf("LED MENU\n");
+                printMenuHeader("Pick LED Menu");
                 askWidth();
                 makeComponents("LED", component.width);
                 askPosition();
@@ -115,8 +114,7 @@ void led() {
 }
 
 void resistor() {
-                system("clear");
-                printf("RESISTOR MENU\n");
+                printMenuHeader("Pick Resistor Menu");
                 askWidth();
                 makeComponents("Resistor", component.width);
                 askPosition();
@@ -126,8 +124,7 @@ void resistor() {
 
 
 void jumperWires() {
-                system("clear");
-                printf("JUMPER WIRES MENU\n");
+                printMenuHeader("Pick Jumper Wires Menu");
                 askWidth();
                 makeComponents("Jumper Wires", component.width);
                 askPosition();

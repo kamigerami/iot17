@@ -25,6 +25,6 @@ void displayBreadBoard()
 
 void resetBreadBoard()
 {
-    printf("resetBreadBoard menu\n");
+    printf("Clearing the breadboard...\n");
     return;
 }
