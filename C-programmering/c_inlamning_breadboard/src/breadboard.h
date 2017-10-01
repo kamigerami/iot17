@@ -10,7 +10,9 @@
 #define ROWS 30
 #endif
 
-
+struct breadboard {
+    char board[ROWS][COLUMNS];
+} breadboard;
 
 
 // display the breadboard

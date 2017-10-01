@@ -5,28 +5,31 @@ void displayBreadBoard(char board[ROWS][COLUMNS])
 {
     int rows, columns;
     
-    // print top A-J COLUMN
-    char *ptr = "";
-    printf("%4s", ptr);
 
-    for ( char alpha = 'A'; alpha <= 'J' ; alpha++) {
-        printf("%c ", alpha);
+    // padding
+    putchar('0'); putchar('0'); putchar(' '); putchar(' ');
+
+    // print top 1-10 COLUMN
+    for ( int i = 1; i <= COLUMNS ; i++) {
+        printf("%4.2d", i);
     }
     printf("\n");
 
     for ( rows = 0 ; rows < ROWS ; rows++ )
         {
-            // print ROW number to the LEFT side
+            // print ROW 1-30 on the LEFT side
             printf("%.2d ", rows+1);
             for ( columns = 0 ; columns < COLUMNS ; columns++ )
             {
                 if(board[rows][columns]){
-                    printf( "|%c", board[rows][columns] );
+                    printf( " | %c", board[rows][columns] );
                 }else{
-                    printf("|x"); 
+                    printf(" | x"); 
                 }
+
             }
-            printf("|\n");
+
+            printf(" |\n");
         }
         return;
 }

@@ -69,8 +69,9 @@ void askQuestions(char value) {
     printf("Enter Column number: ");
     scanf("%d", &col_pos);
      
-    printf("you entered :\n component - %c \n row number - %d \n column number - %d\n", value, row_pos, col_pos);
-         board[row_pos][col_pos] = value;
+    system("clear");
+    printf("you entered:\nComponent - %c \nRow number - %d \nColumn number - %d\n\n", value, row_pos, col_pos);
+         board[row_pos-1][col_pos-1] = value;
          displayBreadBoard(board);
 
 }
