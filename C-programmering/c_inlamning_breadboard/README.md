@@ -43,6 +43,7 @@ Still need to :
 * better use of pointers and functions etc...
 * better Menu's
 * better use of struct / typedef
+* Logic for "occupied" board coordinate
 
 ### Compilation
 To compile project in linux / osx run : 
