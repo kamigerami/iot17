@@ -1,14 +1,22 @@
 #ifndef BREADBOARD_H
 #define BREADBOARD_H
+#endif
 
-
+#ifndef COLUMNS
 #define COLUMNS 10
+#endif
+
+#ifndef ROWS
 #define ROWS 30
+#endif
+
+
+
 
 // display the breadboard
-void displayBreadBoard();
+void displayBreadBoard(char board[ROWS][COLUMNS]);
 
 // reset breadboard
 void resetBreadBoard();
 
-#endif
+

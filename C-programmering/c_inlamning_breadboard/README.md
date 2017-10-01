@@ -31,9 +31,16 @@ created each of the functions such as creating the breadboard, reset, input
 component functions etc..
 
 I separated everything into it's own .h and .c files. 
-The breadboard was created using struct.
 
 I modified and rewrote the code a few times.
+
+Future stuff: 
+
+* Dynamic allocation of the matrix ( change size of breadboard )
+* User adding new components
+* use of functions etc...
+* better Menu's
+* better use of struct / typedef
 
 ### Compilation
 To compile project in linux / osx run : 

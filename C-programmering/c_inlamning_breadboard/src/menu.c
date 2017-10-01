@@ -12,6 +12,7 @@
 
 void showMenu()
 {
+  char board[ROWS][COLUMNS] = {{0}};
   int choice = 0;
   do
     {
@@ -33,7 +34,7 @@ void showMenu()
         {
             case 1:
                 printMenuHeader("Display BreadBoard Menu");
-                displayBreadBoard();
+                displayBreadBoard(board);
                 break;
             case 2:
                 printMenuHeader("Pick and add Component Menu");
@@ -61,6 +62,11 @@ void showMenu()
 }
 
 void printMenuHeader(char title[]) {
+
+    //char *ptr = "Hello";
+    //printf("%40s\n", ptr);
+
+
     system("clear");
     printf("\n");
     for (int i = 0; i <= strlen(title)+3; i++) {

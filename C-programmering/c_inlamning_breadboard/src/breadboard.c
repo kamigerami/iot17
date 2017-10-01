@@ -1,27 +1,35 @@
 #include "breadboard.h"
 #include <stdio.h>
 
-void displayBreadBoard()
+void displayBreadBoard(char board[ROWS][COLUMNS])
 {
-   char grid[ROWS][COLUMNS];
-    int r,c;
-    int row = ROWS;
-    int col = COLUMNS;
+    int rows, columns;
+    
+    // print top A-J COLUMN
+    char *ptr = "";
+    printf("%4s", ptr);
 
-    // top columns A-J (10 columns)
-    printf("00 A B C D E F G H I J\n");
-
-    for (r = 0; r < row; r++) {
-        // left hand side ROWS 1-30 (30 ROWS)
-        printf("%.2d ", r+1);
-        for (c = 0; c < col; c++) {
-            grid[r][c] = 'x';
-            printf("%c ", grid[r][c]);
-        }
-        printf("\n");
+    for ( char alpha = 'A'; alpha <= 'J' ; alpha++) {
+        printf("%c ", alpha);
     }
-}
+    printf("\n");
 
+    for ( rows = 0 ; rows < ROWS ; rows++ )
+        {
+            // print ROW number to the LEFT side
+            printf("%.2d ", rows+1);
+            for ( columns = 0 ; columns < COLUMNS ; columns++ )
+            {
+                if(board[rows][columns]){
+                    printf( "|%c", board[rows][columns] );
+                }else{
+                    printf("|x"); 
+                }
+            }
+            printf("|\n");
+        }
+        return;
+}
 
 void resetBreadBoard()
 {
