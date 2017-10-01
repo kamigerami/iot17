@@ -21,7 +21,8 @@
 
 int main(int argc, char *argv[])
 {
-    printMenuHeader("Welcome to BreadBoard Simulator");
+    char *header = "Welcome to BreadBoard Simulator";
+    printMenuHeader(header);
     showMenu();
     return 0;
 }

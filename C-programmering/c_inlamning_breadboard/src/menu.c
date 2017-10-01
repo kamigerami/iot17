@@ -14,6 +14,7 @@ void showMenu()
 {
   char board[ROWS][COLUMNS] = {{0}};
   int choice = 0;
+  char *header;
   do
     {
 
@@ -33,19 +34,23 @@ void showMenu()
         switch (choice)
         {
             case 1:
-                printMenuHeader("Display BreadBoard Menu");
+                header = "Display BreadBoard Menu";
+                printMenuHeader(header);
                 displayBreadBoard(board);
                 break;
             case 2:
-                printMenuHeader("Pick and add Component Menu");
+                header = "Pick and add Component Menu";
+                printMenuHeader(header);
                 pickComponents();
                 break;
             case 3:
-                printMenuHeader("Remove BreadBoard Menu");
+                header = "Remove BreadBoard Menu";
+                printMenuHeader(header);
                 removeComponents();
                 break;
             case 4:
-                printMenuHeader("Reset the BreadBoard Menu");
+                header = "Reset the BreadBoard Menu";
+                printMenuHeader(header);
                 resetBreadBoard();
                 break;
             case 5:
@@ -61,23 +66,13 @@ void showMenu()
     }while(choice != 5);
 }
 
-void printMenuHeader(char title[]) {
+void printMenuHeader(char header[]) {
 
     //char *ptr = "Hello";
     //printf("%40s\n", ptr);
 
-
     system("clear");
-    printf("\n");
-    for (int i = 0; i <= strlen(title)+3; i++) {
-        putchar('*');
-    }
-    printf("\n");
-
-    printf ( "* %*s *\n", (int)strlen(title), title );
-
-    for (int i = 0; i <= strlen(title)+3; i++) {
-        putchar('*');
-    }
-    printf("\n");
+    printf ( "%.35s\n", "***********************************");
+    printf ("* %30s *\n", header );
+    printf ( "%.35s\n", "***********************************");
 }
