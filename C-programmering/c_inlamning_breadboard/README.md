@@ -34,11 +34,13 @@ I separated everything into it's own .h and .c files.
 
 I modified and rewrote the code a few times.
 
-Future stuff: 
+Still need to : 
 
+* Input and error checking ( out of bounds, wrong input type etc)
+* Have the input "stay" and not reset each time.
 * Dynamic allocation of the matrix ( change size of breadboard )
 * User adding new components
-* use of functions etc...
+* better use of pointers and functions etc...
 * better Menu's
 * better use of struct / typedef
 

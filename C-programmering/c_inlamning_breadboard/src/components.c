@@ -70,7 +70,7 @@ void askQuestions(char value) {
     scanf("%d", &col_pos);
      
     system("clear");
-    printf("you entered:\nComponent - %c \nRow number - %d \nColumn number - %d\n\n", value, row_pos, col_pos);
+    printf("\nYou entered:\nComponent - %c \nRow number - %d \nColumn number - %d\n\n", value, row_pos, col_pos);
          board[row_pos-1][col_pos-1] = value;
          displayBreadBoard(board);
 
