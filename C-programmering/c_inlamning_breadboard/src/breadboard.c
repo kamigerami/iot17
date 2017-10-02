@@ -1,6 +1,8 @@
 #include "breadboard.h"
 #include <stdio.h>
 
+char board[ROWS][COLUMNS] = {{0}};
+
 void displayBreadBoard(char board[ROWS][COLUMNS])
 {
     int rows, columns;

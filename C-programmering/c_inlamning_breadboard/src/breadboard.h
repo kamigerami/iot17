@@ -4,6 +4,7 @@
 #define COLUMNS 10
 #define ROWS 30
 
+extern char board[ROWS][COLUMNS];
 
 // display the breadboard
 void displayBreadBoard(char board[ROWS][COLUMNS]);

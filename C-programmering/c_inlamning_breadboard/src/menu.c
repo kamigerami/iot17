@@ -12,7 +12,6 @@
 
 void showMenu()
 {
-  char board[ROWS][COLUMNS] = {{0}};
   int choice = 0;
   char *header;
   do

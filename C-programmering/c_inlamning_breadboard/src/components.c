@@ -62,7 +62,7 @@ void askQuestions(char value) {
 
     int row_pos = 0;
     int col_pos = 0;
-    char board[ROWS][COLUMNS] = {{0}};
+
 
     printf("Enter row number: ");
     scanf("%d", &row_pos);        
