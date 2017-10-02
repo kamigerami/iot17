@@ -36,15 +36,13 @@ I modified and rewrote the code a few times.
 
 Still need to : 
 
-* Input and error checking ( out of bounds, wrong input type etc)
+* Input validation and error checking ( out of bounds, wrong input type, too many charachters... etc)
 * Dynamic allocation of the matrix ( change size of breadboard )
 * User adding new components
 * better use of pointers and functions etc...
 * better Menu's
 * better use of struct / typedef
-* Logic for "occupied" board coordinate
-* Add width of component
-* Verify that component is not already there
+* Add color to components
 
 ### Compilation
 To compile project in linux / osx run : 
