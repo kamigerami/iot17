@@ -1,5 +1,6 @@
 #include "breadboard.h"
 #include <stdio.h>
+#include <string.h>
 
 char board[ROWS][COLUMNS] = {{0}};
 
@@ -38,6 +39,17 @@ void displayBreadBoard(char board[ROWS][COLUMNS])
 
 void resetBreadBoard()
 {
+
+    int rows, columns;
+
     printf("Clearing the breadboard...\n");
+    for ( rows = 0 ; rows < ROWS ; rows++ )
+    {
+        for ( columns = 0 ; columns < COLUMNS ; columns++ )
+        {
+            board[rows][columns] = '\0';
+        }
+    }
+    displayBreadBoard(board);
     return;
 }

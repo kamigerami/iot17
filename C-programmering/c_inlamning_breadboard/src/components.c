@@ -53,7 +53,31 @@ void pickComponents() {
 
 
 void removeComponents() {
-    printf("which component do you want to remove?: \n");
+
+    char value;
+    int row_pos = 0;
+    int col_pos = 0;
+    int comp_width = 0;
+
+    // need to fix all of the scanf and add better input validation
+    // this is temporary because I don't have time
+    printf("which component do you want to remove? [L] [R] [J]: \n");
+    scanf("%c", &value);
+    printf("Enter row (1-30): ");
+    scanf("%d", &row_pos);
+    printf("Enter column (1-10): ");
+    scanf("%d", &col_pos);
+    printf("Enter width: ");
+    scanf("%d", &comp_width);
+
+    if(board[row_pos-1][col_pos-1] == value ) {
+        for ( int i = 0; i < comp_width; i++) {
+            board[row_pos-1][col_pos-1+i] = '\0';
+        }
+    } else {
+        printf("no such component [%c] in position [%d,%d] with width of %d... try again\n", value, row_pos, col_pos, comp_width);
+    }
+    displayBreadBoard(board);
     return;
 }
 
@@ -66,12 +90,12 @@ void askQuestions(char value) {
 
 
     printf("Enter row (1-30): ");
-    scanf("%d", &row_pos);        
+    scanf("%d", &row_pos);
     printf("Enter column (1-10): ");
     scanf("%d", &col_pos);
     printf("Enter width: ");
     scanf("%d", &comp_width);
-     
+
     system("clear");
     printf("\nYou entered:\nComponent - %c \nRow number - %d \nColumn number - %d\nComponent Width - %d\n\n", value, row_pos, col_pos, comp_width);
     if ((col_pos + comp_width) > COLUMNS) {
