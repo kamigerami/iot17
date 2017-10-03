@@ -9,4 +9,6 @@ void removeComponents();
 
 void askQuestions(char value);
 
+void printComponent(char value);
+
 #endif

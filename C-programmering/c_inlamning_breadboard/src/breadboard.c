@@ -1,3 +1,4 @@
+#include "colors.h"
 #include "breadboard.h"
 #include <stdio.h>
 #include <string.h>
@@ -25,7 +26,13 @@ void displayBreadBoard(char board[ROWS][COLUMNS])
             for ( columns = 0 ; columns < COLUMNS ; columns++ )
             {
                 if(board[rows][columns]){
-                    printf( " | %c", board[rows][columns] );
+                    if(board[rows][columns] == 'L') {
+                      printf( " | %s%c%s", RED, board[rows][columns], RESET );
+                    } else if (board[rows][columns] == 'R') {
+                      printf( " | %s%c%s", GREEN, board[rows][columns], RESET );
+                    } else if (board[rows][columns] == 'J') {
+                      printf( " | %s%c%s", BLUE, board[rows][columns], RESET );
+                    }
                 }else{
                     printf(" | x"); 
                 }

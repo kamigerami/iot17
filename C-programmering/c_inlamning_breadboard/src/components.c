@@ -1,3 +1,4 @@
+#include "colors.h"
 #include "components.h"
 #include "menu.h"
 #include "breadboard.h"
@@ -13,9 +14,9 @@ void pickComponents() {
     {
         printf("\n");
         printf("Pick a component to use:\n");
-        printf("1. LED [L]\n");
-        printf("2. 220-Ohm-Resistor [R]\n");
-        printf("3. Jumper wires [J]\n");
+        printf("1. LED " RED "[L]\n" RESET);
+        printf("2. 220-Ohm-Resistor" GREEN "[R]\n" RESET);
+        printf("3. Jumper wires" BLUE "[J]\n" RESET);
         printf("4. Back to main menu\n");
 
         fflush(stdout);
@@ -61,7 +62,8 @@ void removeComponents() {
 
     // need to fix all of the scanf and add better input validation
     // this is temporary because I don't have time
-    printf("which component do you want to remove? [L] [R] [J]: \n");
+    displayBreadBoard(board);
+    printf("\nwhich component do you want to remove? "RED "[L]" GREEN "[R]" BLUE "[J]"RESET": \n");
     scanf("%c", &value);
     printf("Enter row (1-30): ");
     scanf("%d", &row_pos);
@@ -102,7 +104,7 @@ void askQuestions(char value) {
         printf("can't place a component there (out of bounds)...try again\n");
         pickComponents();
     }
-    if (board[row_pos-1][col_pos-1] != 0 || board[row_pos-1][col_pos-1+comp_width] != 0) {
+    if (board[row_pos-1][col_pos-1] != 0 || board[row_pos-1][col_pos-1+comp_width-1] != 0) {
         printf("space is already occupied...try again\n");
         pickComponents();
     }
