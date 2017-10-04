@@ -6,6 +6,10 @@ class Ticket {
 public:
     void printTicket();
     void addMoney(int money);
+    // constructor
+    Ticket();
+    // destructor
+    ~Ticket();
 private:
     int saldo;
 };
