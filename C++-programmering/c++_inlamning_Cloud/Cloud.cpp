@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Cloud.hpp"
+#include "Dashboard.hpp"
 using namespace std;
 
 
@@ -9,7 +10,7 @@ Cloud::Cloud() {
 
 }
 
-
+    Dashboard db;
 
 
 void Cloud::connected_units() {
@@ -42,6 +43,8 @@ int Cloud::goto_Choice(int choice) {
     case 3: cout << "\n**Remove a unit.**";
     break;
     case 4: cout << "\n**Display dashboard (for status)**";
+
+    db.print_board();
     break;
     case 5: cout << "\n**Exit.**";
     break;
