@@ -2,12 +2,30 @@
 iot_nackademin_2017 files
 
 ```
+$ tree
 .
+├── C++-programmering
+│   ├── c++_arbetsblad
+│   │   └── TicketAutomat
+│   │       ├── main.cpp
+│   │       ├── ticket.cpp
+│   │       └── ticket.h
+│   └── c++_inlamning_Cloud
+│       ├── Makefile
+│       ├── README.md
+│       └── src
+│           ├── Cloud.cpp
+│           ├── Cloud.hpp
+│           ├── Dashboard.cpp
+│           ├── Dashboard.hpp
+│           ├── Unit.cpp
+│           ├── Unit.hpp
+│           └── main.cpp
 ├── C-programmering
 │   ├── c_arbetsblad
+│   │   ├── Tatoeba.sv
 │   │   ├── arbetsblad2_13.c
-│   │   ├── lek2-1.19.c
-│   │   └── Tatoeba.sv
+│   │   └── lek2-1.19.c
 │   └── c_inlamning_breadboard
 │       ├── Makefile
 │       ├── README.md
@@ -20,21 +38,9 @@ iot_nackademin_2017 files
 │           ├── main.c
 │           ├── menu.c
 │           └── menu.h
-├── C++-programmering
-│   ├── c++_arbetsblad
-│   │   └── TicketAutomat
-│   │       ├── main.cpp
-│   │       ├── ticket.cpp
-│   │       └── ticket.h
-│   └── c++_inlamning_Cloud
-│       ├── a.out
-│       ├── Cloud.cpp
-│       ├── Cloud.hpp
-│       ├── Cloud.hpp.gch
-│       └── main.cpp
 └── README.md
 
-8 directories, 22 files
+9 directories, 27 files
 
 ```
 * [C-programmering - Lek & Test](C-programmering/c_arbetsblad)
@@ -43,5 +49,5 @@ iot_nackademin_2017 files
 
 * [C++-programmering - Lek & Test](C++-programmering/c++_arbetsblad)
 
-* [C++-programmering - Inlämningsuppgifter](C++-programmering/c++_inlamning_Cloud)
+* [C++-programmering - Inlämningsuppgifter](C++-programmering/c++_inlamning_Cloud/README.md)
 
