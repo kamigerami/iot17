@@ -6,21 +6,28 @@ using namespace std;
 
 int main() {
 
-Cloud Cloud;
+Cloud cloud;
 
 
 int choice = 0;
 
 
-do
-{
-  Cloud.print_menu();
-  cin >> choice;
-  cout << endl;
+  cout << "Welcome to Nacka Cloud\n\n";
+  while(true) {
+      cloud.print_menu();
+      cin >> choice;
+      cloud.goto_Choice(choice);
+      cout << endl;
 
-  Cloud.goto_Choice(choice);
-} while (choice != 5);
+      if (choice == 5) {
+          break;
+      } 
+      else { 
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');; 
 
+      } 
+  } 
 
 return 0;
 

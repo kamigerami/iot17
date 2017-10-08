@@ -8,7 +8,7 @@ public:
     void dashboard();
     void print_menu();
     int goto_Choice(int choice);
-    void units();
+    void printUnits();
 private:
     void connect_unit();
     void remove_unit(int id);
