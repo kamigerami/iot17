@@ -1,25 +1,21 @@
 #include <iostream>
 #include <string>
-#include "Cloud.hpp"
-#include "Unit.hpp"
+#include "Menu.hpp"
 using namespace std;
+
 
 
 int main() {
 
-Cloud cloud;
-Unit unit;
+Menu menu;
 
 int choice = 0;
-   // initialize units
-   unit.init_Unit_Name();
-   unit.init_Unit_ID();
 
   cout << "Welcome to Nacka Cloud\n";
   while(true) {
-      cloud.print_menu();
+      menu.cloud_menu();
       cin >> choice;
-      cloud.goto_Choice(choice);
+      menu.cloud_goto_Choice(choice);
       cout << endl;
 
       if (choice == 5) {

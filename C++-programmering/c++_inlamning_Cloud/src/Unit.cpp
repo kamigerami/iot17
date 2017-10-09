@@ -5,6 +5,7 @@
  */
 #include <algorithm>
 #include <string>
+#include <iomanip>
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
@@ -12,92 +13,111 @@
 #include "Unit.hpp"
 using namespace std;
 
-Unit::Unit() {
-
-}
-
-void Unit::unit_status() {
-}
-
-void Unit::identification() {
-
-}
-
 
 void Unit::reset() {
+    init_Unit_Name();
+    init_Unit_Info();
+    init_Unit_Status();
+    init_Unit_ID();
 
-
-}
-
-void Unit::status() {
-
-
-}
-
-void Unit::status(int new_status) {
 
 }
 
 void Unit::init_Unit_Name() {
-    Unit::vUnitNames = { "Sensor", "Kylare", "Tryck" };
+    vUnitNames = { "Sensor", "Kylare", "Tryck" };
+}
+
+void Unit::init_Unit_Info() {
+   vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
+}
+
+void Unit::init_Unit_Status() {
+   vUnitStatus = { "Off", "Off", "Off" };
 }
 
 void Unit::init_Unit_ID() {
-   Unit::vNumID = { 10, 20, 30 };
+   vNumID = { 10, 20, 30 };
 }
-void Unit::init_Unit_Status() {
-   Unit::vUnitStatus = { 0, 0, 0 };
-}
-void Unit::init_Unit_Info() {
-   Unit::vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
-}
+
 
 
 
 void Unit::set_Unit_Name() {
 
     cin.ignore();
+    cout << "ID is generated automatically\n" << endl;
+    cout << "Each new unit has a default status of [Off]\n" << endl;
     cout << endl;
     cout << "Unit Name: \n" << endl;
-    getline(cin, Unit::unitName, '\n');
+    getline(cin, unitName, '\n');
     
     cout << endl;
 
-    cout << "Unit Status: 0 (on) / 1 (off) \n" << endl;
-    cin >> Unit::unitStatus;
-    
-    cout << endl;
-    // mixing cin and getline so
-    // discard chars until 
-    // newline is found
-    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
-    
     cout << "Unit Information: \n" << endl;
-    getline(cin, Unit::unitInfo, '\n');
+    getline(cin, unitInfo, '\n');
     cout << endl;
 
     // insert values to the end of the vectors
-    Unit::vUnitNames.push_back(Unit::unitName);
-    Unit::vUnitStatus.push_back(Unit::unitStatus);
-    Unit::vUnitInfo.push_back(Unit::unitInfo);
-    Unit::setId();
+    vUnitNames.push_back(unitName);
+    vUnitStatus.push_back("Off"); // default status to Off
+    vUnitInfo.push_back(unitInfo);
+    setId(); // will set a random ID
 
 }
 void Unit::setId() {
 
 srand( time(NULL) );
-Unit::numID = 0;
+numID = 0;
 
 // create random id in range 1-100
-Unit::numID = rand() % 100 + 1;
-Unit::vNumID.push_back(Unit::numID);
+numID = rand() % 100 + 1;
+vNumID.push_back(numID);
 
        // look for numID inside vector
-    if ( find(vNumID.begin(), vNumID.end(), Unit::numID) != vNumID.end() ) {
+    if ( find(vNumID.begin(), vNumID.end(), numID) != vNumID.end() ) {
        // if it already is in the vector
        // create a new random ID
-       Unit::numID = rand() % 100 + 1;
+       numID = rand() % 100 + 1;
    }
+}
+
+void Unit::print_Connected_Units() {
+
+	// set to On
+	unitStatus = "On";
+    // if any are set to "On" then print that particular unit
+     if ( find(vUnitStatus.begin(), vUnitStatus.end(), unitStatus) != vUnitStatus.end() ) {
+
+    	    ptrdiff_t pos = distance(vUnitStatus.begin(), find(vUnitStatus.begin(), vUnitStatus.end(), unitStatus));
+        cout << "pos is" << pos << endl;
+
+    	 	 cout << setw(25) << left <<
+    	       "\nUnit" <<
+    	       setw(5) << left <<
+    	       " Id" <<
+    	       setw(10) << left <<
+    	       " Status" <<
+    	       setw(35) << left <<
+    	       " Info" << endl;
+
+    	 	 for (int i = 0; i < vUnitNames.size(); i++) {
+
+    	 		 	 cout << setw(25) << left <<
+    	 		 	// name
+    	 		 	vUnitNames[i] <<
+				setw(5) << left <<
+				// id
+				vNumID[i] <<
+				setw(10) << left <<
+				// status
+				vUnitStatus[i] <<
+				setw(35) <<  left <<
+				// info
+				vUnitInfo[i] << endl;
+    	 	 }
+     } else {
+    	 	 	 cout << "\n\nNo connected units... \nYour units are either offline or not available.\nPlease go to the dashboard and connect your units to the CLoud!" << endl;
+     }
 }
 
 

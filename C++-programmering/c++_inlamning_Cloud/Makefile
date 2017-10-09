@@ -1,9 +1,9 @@
 CFLAGS = -std=c++11
 
-SRC=$(wildcard src/*.cpp src/*.hpp)
+SRC=$(wildcard src/*.cpp)
 
-cloud: $(SRC)
+all: $(SRC)
 	g++ $(SRC) $(CFLAGS) 
 
 clean: $(SRC)
-	rm -vf *.out *.gch
+	rm -vf *.out src/*.gch

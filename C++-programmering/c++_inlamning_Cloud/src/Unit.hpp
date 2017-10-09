@@ -1,36 +1,29 @@
-#ifndef UNIT_H
-#define UNIT_H
-
+#ifndef UNIT_HPP
+#define UNIT_HPP
 #include <vector>
 #include <string>
-#include "Cloud.hpp"
-
 using namespace std;
 
-class Unit: public Cloud {
+class Unit {
     public:
         Unit();
-        void set_Unit_Name();
         void init_Unit_Name();
-        void init_Unit_ID();
-        void init_Unit_Status();
         void init_Unit_Info();
-        void unit_status();
-        void identification();
+        void init_Unit_Status();
+        void init_Unit_ID();
+        void set_Unit_Name();
         void reset();
-        void status();
-        void status(int new_status);
         void setId();
+        void print_Connected_Units();
         vector<string> vUnitNames;
         vector<string> vUnitInfo;
-        vector<int> vUnitStatus;
+        vector<string> vUnitStatus;
         vector<int> vNumID;
         string unitName;
         string unitInfo;
-        int unitStatus;
+        string unitStatus;
         int numID;
-
-    private:
+        int value;
 };
 
 #endif

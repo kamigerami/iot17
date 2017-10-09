@@ -4,11 +4,6 @@
 class Cloud {
 public:
     Cloud();
-    void connected_units();
-    void dashboard();
-    void print_menu();
-    int goto_Choice(int choice);
-    void printUnits();
 private:
     void connect_unit();
     void remove_unit(int id);
