@@ -4,15 +4,29 @@
 #include <iostream>
 #include "Menu.hpp"
 #include "Dashboard.hpp"
+#include "Cloud.hpp"
 #include "Unit.hpp"
 using namespace std;
 
-Dashboard dashboard;
+Dashboard Dashboard;
+Cloud Cloud;
 Unit Unit;
+
+Cloud::Cloud() {
+}
 
 Menu::Menu() {
 
 }
+// Initialize Unit vectors
+
+vector<string> vUnitNames = { "Sensor", "Kylare", "Tryck" };
+vector<string> vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
+vector<string> vUnitStatus = { "Off", "Off", "Off" };
+vector<int> vNumID = { 10, 20, 30 };
+
+
+
 // Dashboard
 
 
@@ -20,12 +34,12 @@ int Menu::dashboard_goto_Choice(int choice) {
   switch(choice)
   {
     case 1:
-    	cout << "\n** Change status of unit **\n";
-    	dashboard.change_status();
+    	cout << "\n** Change status of a unit **\n";
+    	Dashboard.change_status();
     break;
     case 2:
-    	cout << "\n** Display current status **\n";
-   dashboard.print_units();
+    	cout << "\n** Display status of all units**\n";
+    Dashboard.print_units();
     break;
     case 3:
     	cout << "\n** Back to main menu.**\n";
@@ -47,8 +61,8 @@ void Menu::dashboard_menu() {
 	    cout << endl;
 	    cout << "Welcome to the dashboard\n\n";
 	    cout << endl;
-	    cout << "1) Change status of unit" << endl;
-	    cout << "2) Display current status" << endl;
+	    cout << "1) Change status of a unit" << endl;
+	    cout << "2) Display status of all units" << endl;
 	    cout << "3) Back to main menu." << endl ;
 	    cout << endl;
 	    cin >> choice;
@@ -75,7 +89,7 @@ int Menu::cloud_goto_Choice(int choice) {
   {
     case 1:
     	cout << "\n** Connected units **\n";
-    Unit.print_Connected_Units();
+    Cloud.print_Connected_Units();
     break;
     case 2:
     	cout << "\n** Add a new unit **\n";
@@ -83,6 +97,7 @@ int Menu::cloud_goto_Choice(int choice) {
     break;
     case 3:
     	cout << "\n** Remove a unit **\n";
+    	Dashboard.remove_unit();
     break;
     case 4:
     	cout << "\n** Dashboard **\n";

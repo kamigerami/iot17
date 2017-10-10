@@ -1,12 +1,15 @@
 #ifndef CLOUD_H
 #define CLOUD_H
+#include <string>
+using namespace std;
 
 class Cloud {
 public:
     Cloud();
+    void print_Connected_Units(); // print connected units
 private:
-    void connect_unit();
-    void remove_unit(int id);
+    string unitStatus;
+
 
 };
 

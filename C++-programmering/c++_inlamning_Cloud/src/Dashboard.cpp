@@ -16,28 +16,95 @@ using namespace std;
 Unit unit;
 Menu menu;
 
-// constructor
+// constructors
 Dashboard::Dashboard() {
-
-}
+	numID = 0;
+};
 
 Unit::Unit() {
+	value = 0;
+	numID = 0;
+};
 
-	   //  initalize vector if it's empty
-	   if (vUnitNames.empty() || vUnitInfo.empty() || vUnitStatus.empty() || vNumID.empty()) {
 
-	       init_Unit_Name();
-	       init_Unit_Info();
-	       init_Unit_Status();
-	       init_Unit_ID();
-	   }
+void Dashboard::remove_unit() {
 
+	 // we will get an input from the user
+	 // for the ID that we want to remove
+	 // then remove the element from all of the vectors
+	 // and shrink_to_fit the vector again
+
+	 cout << "Remove Unit (any unit - even disconnected): \n" << endl;
+	 cout << endl;
+	 print_units();
+	 cout << endl;
+
+	 cout << "Which Unit [ID] do you want to remove ?" << endl;
+	 cin >> numID;
+	 // check if the input exists in the vector vNumID
+	 if ( find(vNumID.begin(), vNumID.end(), numID) == vNumID.end() ) {
+		 cout << "ID " << numID << " " << "Don't exist... exiting" << endl;
+		 menu.cloud_menu();
+	 } else {
+		// find ID -> change value inside vector
+		// get position
+		ptrdiff_t pos = distance(vNumID.begin(), find(vNumID.begin(), vNumID.end(), numID));
+
+		// print the unit that was picked
+		cout << setw(25) << left <<
+		"\nUnit" <<
+		setw(5) << left <<
+		" Id" <<
+		setw(10) << left <<
+		" Status" <<
+		setw(35) << left <<
+		" Info" << endl;
+
+		cout << setw(25) << left <<
+		// name
+		vUnitNames[pos] <<
+		setw(5) << left <<
+		// id
+		vNumID[pos] <<
+		setw(10) << left <<
+		// status
+		vUnitStatus[pos] <<
+		setw(35) <<  left <<
+		// info
+		vUnitInfo[pos] << endl;
+
+		cout << endl;
+		cout << endl;
+
+		cin.ignore();
+
+		cout << "Are you sure you want to remove this unit ? [Y]es / [N]o\n" << endl;
+
+		// local string choice
+		string choice = "";
+		getline(cin, choice);
+
+		if (choice == "Y" || choice == "y" || choice == "yes" || choice == "YES") {
+			// erase elements from vector using the index position
+			vUnitNames.erase(vUnitNames.begin() + pos);
+			vUnitInfo.erase(vUnitInfo.begin() + pos);
+			vUnitStatus.erase(vUnitStatus.begin() + pos);
+			vNumID.erase(vNumID.begin() + pos);
+
+			// resize vector to save space
+			vector<string>(vUnitNames).swap(vUnitNames);
+			vector<string>(vUnitInfo).swap(vUnitInfo);
+			vector<string>(vUnitStatus).swap(vUnitStatus);
+			vector<int>(vNumID).swap(vNumID);
+		} else if (choice == "N" || choice == "n" || choice == "no" || choice == "NO") {
+			cout << "Not doing any changes ... canceling removal of unit" << endl;
+			menu.cloud_menu();
+		} else {
+			cout << "Wrong input...try again" << endl;
+			remove_unit();
+		} // nested if
+	} // nested if
 }
-vector<string> vUnitNames = { "Sensor", "Kylare", "Tryck" };
-vector<string> vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
-vector<string> vUnitStatus = { "Off", "Off", "Off" };
-vector<int> vNumID = { 10, 20, 30 };
-
 
 void Dashboard::change_status() {
 
@@ -52,14 +119,14 @@ void Dashboard::change_status() {
 	    cout << endl;
 
 	    cout << "Which Unit [ID] do you want to change status of ?" << endl;
-	    cin >> unit.numID;
+	    cin >> numID;
 	    // check if the input exists in the vector vNumID
-	    if ( find(vNumID.begin(), vNumID.end(), unit.numID) == vNumID.end() ) {
-	   	    	 	 cout << "ID " << unit.numID << " " << "Don't exist... exiting" << endl;
+	    if ( find(vNumID.begin(), vNumID.end(), numID) == vNumID.end() ) {
+	   	    	 	 cout << "ID " << numID << " " << "Don't exist... exiting" << endl;
 	   	    	 	 menu.dashboard_menu();
 	    } else {
 	    		cout << endl;
-	    		cout << "Set status for ID [" << unit.numID << "] :"<< endl;
+	    		cout << "Set status for ID [" << numID << "] :"<< endl;
 	    		cout << endl;
 	    		cout << "1) On\n" << endl;
 	    		cout << "2) Off\n" << endl;
@@ -67,18 +134,18 @@ void Dashboard::change_status() {
 	    		cin >> choice;
 
 	    		if (choice == 1) {
-	    			unit.unitStatus = "On";
+	    			unitStatus = "On";
 	    		} else {
-	    			unit.unitStatus = "Off";
+	    			unitStatus = "Off";
 	    		}
 
 	    		// find ID -> change value inside vector
-	    		if ( find(vNumID.begin(), vNumID.end(), unit.numID) != vNumID.end() ) {
+	    		if ( find(vNumID.begin(), vNumID.end(), numID) != vNumID.end() ) {
 	    			// get position
-	    			ptrdiff_t pos = distance(vNumID.begin(), find(vNumID.begin(), vNumID.end(), unit.numID));
-	    	        	cout << "pos is " << pos << endl;
+	    			ptrdiff_t pos = distance(vNumID.begin(), find(vNumID.begin(), vNumID.end(), numID));
+
 		    		// change value here
-	    	        	vUnitStatus[pos] = unit.unitStatus;
+	    	        	vUnitStatus[pos] = unitStatus;
 	    		}
 	    }
 }

@@ -7,17 +7,13 @@ using namespace std;
 class Unit {
     public:
         Unit();
-        void init_Unit_Name();
-        void init_Unit_Info();
-        void init_Unit_Status();
-        void init_Unit_ID();
         void set_Unit_Name();
         void reset();
         void setId();
         void print_Connected_Units();
         string unitName;
         string unitInfo;
-        string unitStatus;
+private:
         int numID;
         int value;
 };
