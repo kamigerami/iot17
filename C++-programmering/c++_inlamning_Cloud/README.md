@@ -39,14 +39,14 @@ I use a lot of vectors<string> and <int> to push_back information in to them whe
 
 I made the vectors extern ( I could have used pointers or static members instead and there is improvements to be done when time allows)
 
-The reason I chose a vector (instead of a list) is because of it using contiguous memory.
+The reason I chose a vector (instead of a list) is because of it using contiguous memory and we can easily resize it when we remove or add units.
 
 
 Still need to : 
 
 * Input validation and error checking ( out of bounds, wrong input type, too many charachters... etc)
-* User removing components
 * better separation of private and public methods and variables.
+* code cleanup conforming to best practices
 
 ### Compilation
 To compile project in linux / osx run : 
