@@ -29,11 +29,15 @@ Unit::Unit() {
 
 void Dashboard::remove_unit() {
 
+	if (vUnitNames.empty() ) {
+	 	 cout << "\n\nThere are no units available.\nCan't remove units.\nPlease go to the Cloud (main menu) and add a new unit! " << endl;
+	 	 return;
+	}
 	 // we will get an input from the user
 	 // for the ID that we want to remove
 	 // then remove the element from all of the vectors
 	 // and shrink_to_fit the vector again
-
+	 cout << endl;
 	 cout << "Remove Unit (any unit - even disconnected): \n" << endl;
 	 cout << endl;
 	 print_units();
@@ -44,7 +48,7 @@ void Dashboard::remove_unit() {
 	 // check if the input exists in the vector vNumID
 	 if ( find(vNumID.begin(), vNumID.end(), numID) == vNumID.end() ) {
 		 cout << "ID " << numID << " " << "Don't exist... exiting" << endl;
-		 menu.cloud_menu();
+		 //menu.cloud_menu();
 	 } else {
 		// find ID -> change value inside vector
 		// get position
@@ -100,7 +104,9 @@ void Dashboard::remove_unit() {
 			cout << "Not doing any changes ... canceling removal of unit" << endl;
 			menu.cloud_menu();
 		} else {
+			cout << endl;
 			cout << "Wrong input...try again" << endl;
+			cout << endl;
 			remove_unit();
 		} // nested if
 	} // nested if
@@ -152,31 +158,35 @@ void Dashboard::change_status() {
 
 
 void Dashboard::print_units() {
-  cout << setw(25) << left <<
-      "\nUnit" << 
-      setw(5) << left <<
-      " Id" << 
-      setw(10) << left <<
-      " Status" << 
-      setw(35) << left <<
-      " Info" << endl;
+	if (! vUnitNames.empty() ) {
+
+		cout << setw(25) << left <<
+		"\nUnit" <<
+		setw(5) << left <<
+		" Id" <<
+		setw(10) << left <<
+		" Status" <<
+		setw(35) << left <<
+		" Info" << endl;
 
 
-   for (int i = 0; i < vUnitNames.size(); i++) {
+		for (int i = 0; i < vUnitNames.size(); i++) {
 
-       cout << setw(25) << left <<
-       // name
-       vUnitNames[i] <<
-       setw(5) << left <<
-       // id
-       vNumID[i] <<
-       setw(10) << left <<
-       // status
-       vUnitStatus[i] <<
-       setw(35) <<  left <<
-       // info
-       vUnitInfo[i] << endl;
-   }
-
+			cout << setw(25) << left <<
+			// name
+			vUnitNames[i] <<
+			setw(5) << left <<
+			// id
+			vNumID[i] <<
+			setw(10) << left <<
+			// status
+			vUnitStatus[i] <<
+			setw(35) <<  left <<
+			// info
+			vUnitInfo[i] << endl;
+		}
+	} else {
+	    	 	 	 cout << "\n\nThere are no units available.\nPlease go to the Cloud (main menu) and add a new unit! " << endl;
+	     }
 }
 
