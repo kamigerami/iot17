@@ -24,19 +24,20 @@ void Unit::reset() {
 }
 
 void Unit::init_Unit_Name() {
-    vUnitNames = { "Sensor", "Kylare", "Tryck" };
+    //vUnitNames = { "Sensor", "Kylare", "Tryck" };
 }
 
 void Unit::init_Unit_Info() {
-   vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
+   //vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
+
 }
 
 void Unit::init_Unit_Status() {
-   vUnitStatus = { "Off", "Off", "Off" };
+   // vUnitStatus = { "Off", "Off", "Off" };
 }
 
 void Unit::init_Unit_ID() {
-   vNumID = { 10, 20, 30 };
+  // vNumID = { 10, 20, 30 };
 }
 
 
@@ -86,10 +87,27 @@ void Unit::print_Connected_Units() {
 	// set to On
 	unitStatus = "On";
     // if any are set to "On" then print that particular unit
+
      if ( find(vUnitStatus.begin(), vUnitStatus.end(), unitStatus) != vUnitStatus.end() ) {
 
-    	    ptrdiff_t pos = distance(vUnitStatus.begin(), find(vUnitStatus.begin(), vUnitStatus.end(), unitStatus));
-        cout << "pos is" << pos << endl;
+    	   // prints only first occurence
+    	 // ptrdiff_t pos = distance(vUnitStatus.begin(), find(vUnitStatus.begin(), vUnitStatus.end(), unitStatus));
+
+
+    		// iterate through vector Status and find all occurences of unitStatus
+    		// and save their index positions to result vector
+
+    		std::vector<std::size_t> result ;
+
+    		for( size_t i = 0; i < vUnitStatus.size(); ++i) {
+    			if (vUnitStatus[i] == unitStatus) {
+    				result.push_back(i);
+    			}
+    		}
+
+    		for (int i = 0; i < result.size(); i++) {
+    			cout << "result is : " << result[i] << endl;
+    		}
 
     	 	 cout << setw(25) << left <<
     	       "\nUnit" <<
@@ -100,20 +118,20 @@ void Unit::print_Connected_Units() {
     	       setw(35) << left <<
     	       " Info" << endl;
 
-    	 	 for (int i = 0; i < vUnitNames.size(); i++) {
+    	 	 for (int i = 0; i < result.size(); i++) {
 
     	 		 	 cout << setw(25) << left <<
     	 		 	// name
-    	 		 	vUnitNames[i] <<
+    	 		 	vUnitNames[result[i]] <<
 				setw(5) << left <<
 				// id
-				vNumID[i] <<
+				vNumID[result[i]] <<
 				setw(10) << left <<
 				// status
-				vUnitStatus[i] <<
+				vUnitStatus[result[i]] <<
 				setw(35) <<  left <<
 				// info
-				vUnitInfo[i] << endl;
+				vUnitInfo[result[i]] << endl;
     	 	 }
      } else {
     	 	 	 cout << "\n\nNo connected units... \nYour units are either offline or not available.\nPlease go to the dashboard and connect your units to the CLoud!" << endl;

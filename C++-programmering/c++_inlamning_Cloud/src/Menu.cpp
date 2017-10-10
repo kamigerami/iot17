@@ -24,13 +24,10 @@ int Menu::dashboard_goto_Choice(int choice) {
     	dashboard.change_status();
     break;
     case 2:
-    	cout << "\n** Change unit value **\n";
-    break;
-    case 3:
     	cout << "\n** Display current status **\n";
    dashboard.print_units();
     break;
-    case 4:
+    case 3:
     	cout << "\n** Back to main menu.**\n";
     break;
     default:
@@ -51,14 +48,13 @@ void Menu::dashboard_menu() {
 	    cout << "Welcome to the dashboard\n\n";
 	    cout << endl;
 	    cout << "1) Change status of unit" << endl;
-	    cout << "2) Change unit value" << endl;
-	    cout << "3) Display current status" << endl;
-	    cout << "4) Back to main menu." << endl ;
+	    cout << "2) Display current status" << endl;
+	    cout << "3) Back to main menu." << endl ;
 	    cout << endl;
 	    cin >> choice;
 	    dashboard_goto_Choice(choice);
 	    cout << endl;
-	    if (choice == 4) {
+	    if (choice == 3) {
 	        break;
 	    } else {
 	        cin.clear();

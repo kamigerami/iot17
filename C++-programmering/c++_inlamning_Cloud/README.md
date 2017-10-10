@@ -1,5 +1,5 @@
 # Nacka Cloud
-A Nacka Cloud written in C
+A Nacka Cloud written in C++
 
 ### Table of Content
 1. [About](#about)
@@ -10,7 +10,7 @@ A Nacka Cloud written in C
 ### About
 * This program will simulate a cloud solution that displays information about connected IOT devices.
 * You'll be able to add new units to the dashboard.
-* The user will Display, Remove, Add and modify units on the dashboard.
+* The user will Display, Remove, Add and modify unit statuses on the dashboard.
 
 ### Requirements
 * Use OOP.
@@ -36,6 +36,8 @@ I modified and rewrote the code a few times, added new methods and classes.
 In the setId() method I create a random ID in the range of 1-100 and push it into a vector<int> and also check so the ID is available (not inside the vector already) using the std::find method.
 
 I use a lot of vectors<string> and <int> to push_back information in to them when user adds new components.
+
+I made the vectors extern ( I could have used pointers or static members instead and there is improvements to be done when time allows)
 
 The reason I chose a vector (instead of a list) is because of it using contiguous memory.
 

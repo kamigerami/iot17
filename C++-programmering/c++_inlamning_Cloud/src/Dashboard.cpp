@@ -4,6 +4,7 @@
  */
 #include <iomanip>
 #include <cstdlib>
+#include <vector>
 #include <string>
 #include <iostream>
 #include "Dashboard.hpp"
@@ -21,6 +22,7 @@ Dashboard::Dashboard() {
 }
 
 Unit::Unit() {
+
 	   //  initalize vector if it's empty
 	   if (vUnitNames.empty() || vUnitInfo.empty() || vUnitStatus.empty() || vNumID.empty()) {
 
@@ -31,6 +33,11 @@ Unit::Unit() {
 	   }
 
 }
+vector<string> vUnitNames = { "Sensor", "Kylare", "Tryck" };
+vector<string> vUnitInfo = { "Temp.sensor", "Kylare [serverhall]", "Trycksensor" };
+vector<string> vUnitStatus = { "Off", "Off", "Off" };
+vector<int> vNumID = { 10, 20, 30 };
+
 
 void Dashboard::change_status() {
 
@@ -47,7 +54,7 @@ void Dashboard::change_status() {
 	    cout << "Which Unit [ID] do you want to change status of ?" << endl;
 	    cin >> unit.numID;
 	    // check if the input exists in the vector vNumID
-	    if ( find(unit.vNumID.begin(), unit.vNumID.end(), unit.numID) == unit.vNumID.end() ) {
+	    if ( find(vNumID.begin(), vNumID.end(), unit.numID) == vNumID.end() ) {
 	   	    	 	 cout << "ID " << unit.numID << " " << "Don't exist... exiting" << endl;
 	   	    	 	 menu.dashboard_menu();
 	    } else {
@@ -66,12 +73,12 @@ void Dashboard::change_status() {
 	    		}
 
 	    		// find ID -> change value inside vector
-	    		if ( find(unit.vNumID.begin(), unit.vNumID.end(), unit.numID) != unit.vNumID.end() ) {
+	    		if ( find(vNumID.begin(), vNumID.end(), unit.numID) != vNumID.end() ) {
 	    			// get position
-	    			ptrdiff_t pos = distance(unit.vNumID.begin(), find(unit.vNumID.begin(), unit.vNumID.end(), unit.numID));
+	    			ptrdiff_t pos = distance(vNumID.begin(), find(vNumID.begin(), vNumID.end(), unit.numID));
 	    	        	cout << "pos is " << pos << endl;
 		    		// change value here
-	    	        	unit.vUnitStatus[pos] = unit.unitStatus;
+	    	        	vUnitStatus[pos] = unit.unitStatus;
 	    		}
 	    }
 }
@@ -88,20 +95,20 @@ void Dashboard::print_units() {
       " Info" << endl;
 
 
-   for (int i = 0; i < unit.vUnitNames.size(); i++) {
+   for (int i = 0; i < vUnitNames.size(); i++) {
 
        cout << setw(25) << left <<
        // name
-       unit.vUnitNames[i] <<
+       vUnitNames[i] <<
        setw(5) << left <<
        // id
-       unit.vNumID[i] <<
+       vNumID[i] <<
        setw(10) << left <<
        // status
-       unit.vUnitStatus[i] <<
+       vUnitStatus[i] <<
        setw(35) <<  left <<
        // info
-       unit.vUnitInfo[i] << endl;
+       vUnitInfo[i] << endl;
    }
 
 }

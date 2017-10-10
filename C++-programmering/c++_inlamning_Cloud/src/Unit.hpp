@@ -15,15 +15,16 @@ class Unit {
         void reset();
         void setId();
         void print_Connected_Units();
-        vector<string> vUnitNames;
-        vector<string> vUnitInfo;
-        vector<string> vUnitStatus;
-        vector<int> vNumID;
         string unitName;
         string unitInfo;
         string unitStatus;
         int numID;
         int value;
 };
+
+extern vector<string> vUnitNames;
+extern vector<string> vUnitInfo;
+extern vector<string> vUnitStatus;
+extern vector<int> vNumID;
 
 #endif
