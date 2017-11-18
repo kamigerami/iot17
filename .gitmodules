@@ -1,0 +1,3 @@
+[submodule "python/inlamning_asteroids/asteroids-grupparbete-oop"]
+	path = python/inlamning_asteroids/asteroids-grupparbete-oop
+	url = https://github.com/fstoltz/asteroids-grupparbete-oop
