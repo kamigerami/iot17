@@ -2,7 +2,7 @@
 iot_nackademin_2017 files
 
 ```
-$ tree
+ tree
 .
 ├── C++-programmering
 │   ├── c++_arbetsblad
@@ -13,20 +13,15 @@ $ tree
 │   └── c++_inlamning_Cloud
 │       ├── Makefile
 │       ├── README.md
-│       ├── a.out
 │       └── src
 │           ├── Cloud.cpp
 │           ├── Cloud.hpp
-│           ├── Cloud.hpp.gch
 │           ├── Dashboard.cpp
 │           ├── Dashboard.hpp
-│           ├── Dashboard.hpp.gch
 │           ├── Menu.cpp
 │           ├── Menu.hpp
-│           ├── Menu.hpp.gch
 │           ├── Unit.cpp
 │           ├── Unit.hpp
-│           ├── Unit.hpp.gch
 │           └── main.cpp
 ├── C-programmering
 │   ├── c_arbetsblad
@@ -37,7 +32,6 @@ $ tree
 │       ├── Makefile
 │       ├── README.md
 │       └── src
-│           ├── a.out
 │           ├── breadboard.c
 │           ├── breadboard.h
 │           ├── colors.h
@@ -60,14 +54,42 @@ $ tree
 ├── README.md
 └── python
     ├── arbetsblad
-    │   └── classes.py
+    │   ├── classes.py
+    │   └── ex40a.py
+    ├── inlamning_2_oop
+    │   ├── main.py
+    │   ├── person.py
+    │   ├── staff.py
+    │   └── student.py
+    ├── inlamning_asteroids
+    │   ├── Asteroids_start
+    │   │   ├── asteroids.py
+    │   │   ├── circle.py
+    │   │   ├── game.py
+    │   │   ├── main.py
+    │   │   ├── point.py
+    │   │   ├── polygon.py
+    │   │   ├── shape.py
+    │   │   └── ship.py
+    │   ├── OOP\ -\ Asteroids.docx
+    │   └── asteroids-grupparbete-oop
+    │       ├── README.md
+    │       ├── asteroid.py
+    │       ├── asteroids.py
+    │       ├── bullet.py
+    │       ├── circle.py
+    │       ├── game.py
+    │       ├── main.py
+    │       ├── point.py
+    │       ├── polygon.py
+    │       ├── shape.py
+    │       ├── ship.py
+    │       └── star.py
     └── inlamning_json_object
-        ├── __pycache__
-        │   └── myjson.cpython-36.pyc
         ├── main.py
         └── myjson.py
 
-15 directories, 47 files
+22 directories, 92 files
 ```
 * [Introduction-IOT - Inlämningsuppgift](Introduction-IOT/huzza/README.md)
 
@@ -81,5 +103,8 @@ $ tree
 
 * [Python - Lek & Test](python/arbetsblad)
 
-* [Python - Inlämningsuppgifter](python/inlamning_json_object)
+* [Python - Inlämningsuppgift - Json Object](python/inlamning_json_object)
 
+* [Python - Inlämningsuppgift - Asteroids Grupparbete](python/inlamning_asteroids/asteroids-grupparbete-oop)
+
+* [Python - Inlämningsuppgift - OOP-2 ](python/inlamning_2_oop)
